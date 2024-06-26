@@ -1,0 +1,33 @@
+.userCard {
+  flex-direction: column;
+  gap: 8px;
+  display: flex;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.deleteBtn {
+  width: 100px;
+  height: 50px;
+  background-color: #f24e5e;
+  color: #333333;
+  margin: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #474f52;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.deleteBtn:hover {
+  background-color: rgba(255, 0, 0, 0.872);
+  border-color: rgb(255, 47, 0);
+}
