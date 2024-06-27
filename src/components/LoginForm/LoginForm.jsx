@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import css from './LoginForm.module.css';
 
@@ -17,9 +17,9 @@ const LoginForm = () => {
     password: Yup.string().required('Required'),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (values, action) => {
     dispatch(logIn(values));
-    resetForm();
+    action.resetForm();
   };
 
   return (
@@ -33,10 +33,16 @@ const LoginForm = () => {
           <div className={css.label}>
             <label htmlFor="email">Email</label>
             <Field type="email" name="email" id="email" />
+            <ErrorMessage name="email" component="div" className={css.error} />
           </div>
           <div className={css.label}>
             <label htmlFor="password">Password</label>
             <Field type="password" name="password" id="password" />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className={css.error}
+            />
           </div>
           <button type="submit" disabled={isSubmitting}>
             log in

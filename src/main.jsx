@@ -1,5 +1,5 @@
 import React from 'react';
-import 'modern-normalize/modern-normalize.css';
+import 'modern-normalize';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';

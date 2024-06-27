@@ -1,26 +1,41 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
+import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+
+import ContactForm from '../components/ContactForm/ContactForm';
+import ContactList from '../components/ContactList/ContactList';
+import SearchBox from '../components/SearchBox/SearchBox';
+import Loader from '../components/Loader/Loader';
+import { fetchContacts } from '../redux/contacts/operations';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  //   selectContacts,
+  selectLoading,
+  selectError,
+  selectFilteredContacts,
+} from '../redux/contacts/selectors';
+
+const ContactsPage = () => {
+  const dispatch = useDispatch();
+  //   const contacts = useSelector(selectContacts);
+  const error = useSelector(selectError);
+  const filteredContacts = useSelector(selectFilteredContacts);
+  const isLoading = useSelector(selectLoading);
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
+  return (
+    <>
+      <Helmet>
+        <title>Your Contacts</title>
+      </Helmet>
+      <ContactForm />
+      <SearchBox />
+      {isLoading ? <Loader /> : <ContactList contacts={filteredContacts} />}
+      {error && <p>Something went wrong: {error}</p>}
+    </>
+  );
 };
 
-export default function Home() {
-  return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
-  );
-}
+export default ContactsPage;

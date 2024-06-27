@@ -14,8 +14,7 @@ const validationSchema = Yup.object({
     .min(6, 'Password must contain at least 6 symbols!')
     .required('Required'),
 });
-
-export const RegistrationForm = () => {
+const RegistrationForm = () => {
   const dispatch = useDispatch();
   <Formik
     initialValues={{ name: '', email: '', password: '' }}
