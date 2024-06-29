@@ -26,6 +26,13 @@ body {
   min-height: 100vh;
   color: #333;
 }
+/* background-image: linear-gradient(191deg, rgb(165, 5, 189), rgb(239, 87, 203));
+background-image: linear-gradient(
+  191deg,
+  rgb(180, 5, 189),
+  rgba(239, 87, 217, 0.97)
+);
+background-image: linear-gradient(183deg, rgb(179, 5, 189), rgb(240, 34, 202)); */
 
 button {
   border-radius: 8px;

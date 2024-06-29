@@ -6,7 +6,7 @@ import {
   selectNameFilter,
   selectPhoneFilter,
 } from '../../redux/filters/selectors';
-import Modal from '../Modal';
+import Modal from '../ModalContact';
 import toast from 'react-hot-toast';
 
 function SearchBox() {

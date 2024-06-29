@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FaRegAddressBook } from 'react-icons/fa6';
+import SearchBox from '../SearchBox/SearchBox';
 import css from './ContactForm.module.css';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -64,6 +65,7 @@ function ContactForm() {
           <button className={css.contactFormBtn} type="submit">
             Add contact
           </button>
+          <SearchBox />
         </Form>
       </>
     </Formik>

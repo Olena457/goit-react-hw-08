@@ -9,8 +9,12 @@ export const UserMenu = () => {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.username}>Welcome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <p className={css.userName}>Welcome, {user.name}👋</p>
+      <button
+        type="button"
+        className={css.btnUser}
+        onClick={() => dispatch(logOut())}
+      >
         Logout
       </button>
     </div>
