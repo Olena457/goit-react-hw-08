@@ -13,23 +13,36 @@ import {
   REGISTER,
   PERSIST,
 } from 'redux-persist';
-const authPersisConfig = {
-  key: 'auth',
-  storage,
-  whitelist: ['token'],
-};
+const persistedContactsReducer = persistReducer(
+  {
+    key: 'contactsValue',
+    storage,
+    whitelist: ['items'],
+  },
+  contactsReducer
+);
+
+const persistedAuthReducer = persistReducer(
+  {
+    key: 'auth',
+    storage,
+    whitelist: ['token'],
+  },
+  authReducer
+);
 
 export const store = configureStore({
   reducer: {
-    filter: filtersReducer,
-    contacts: contactsReducer,
-    auth: persistReducer(authReducer, authPersisConfig),
+    contacts: persistedContactsReducer,
+    filters: filtersReducer,
+    auth: persistedAuthReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, PAUSE, PURGE, REHYDRATE, REGISTER, PERSIST],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });
+
 export const persistor = persistStore(store);
