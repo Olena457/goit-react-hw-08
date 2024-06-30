@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '../../redux/filters/slice';
 import {
   selectNameFilter,
-  selectPhoneFilter,
+  selectNumberFilter,
 } from '../../redux/filters/selectors';
 import Modal from '../ModalContact';
 import toast from 'react-hot-toast';
 
 function SearchBox() {
   const searchFieldId = useId();
-  const phoneFieldId = useId();
+  const numberFieldId = useId();
   const dispatch = useDispatch();
   const nameValue = useSelector(selectNameFilter);
-  const phoneValue = useSelector(selectPhoneFilter);
+  const numberValue = useSelector(selectNumberFilter);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNameChange = ev => {
@@ -45,14 +45,14 @@ function SearchBox() {
         />
       </div>
       <div className={css.SearchBox}>
-        <label className={css.label} htmlFor={phoneFieldId}>
+        <label className={css.label} htmlFor={numberFieldId}>
           Search contacts by phone
         </label>
         <input
           className={css.input}
-          id={phoneFieldId}
+          id={numberFieldId}
           type="text"
-          value={phoneValue}
+          value={numberValue}
           onChange={handlePhoneChange}
         />
       </div>

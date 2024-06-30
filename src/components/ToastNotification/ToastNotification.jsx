@@ -3,13 +3,13 @@ import { Toaster } from 'react-hot-toast';
 export default function MessageError() {
   return (
     <Toaster
-      position="top-center"
+      position="top-right"
       reverseOrder={false}
       gutter={8}
       toastOptions={{
-        duration: 4000,
+        duration: 3000,
         style: {
-          border: '2px solid #680747',
+          border: '2px solid ##e71c30',
         },
       }}
     />

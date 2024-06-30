@@ -1,2 +1,2 @@
-export const selectNameFilter = store => store.filter.name;
-export const selectPhoneFilter = state => state.filter.phone;
+export const selectNameFilter = store => store.filters.name;
+export const selectNumberFilter = state => state.filters.number;
