@@ -1,16 +1,13 @@
-import css from '../App/App.module.css';
 import { useEffect, lazy } from 'react';
 import { refreshUser } from './redux/auth/operations';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
+import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 import ToastNotification from './components/ToastNotification/ToastNotification';
-import Loader from '../Loader/Loader';
-// import { useAuth } from '../../hooks';
+import Loading from './components/Loading/Loading';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from './redux/auth/selectors';
-
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const RegistrationPage = lazy(() =>
   import('./pages/RegistrationPage/RegistrationPage')
@@ -18,7 +15,8 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
-export const App = () => {
+
+function App() {
   const dispatch = useDispatch();
   const { isRefreshing } = useSelector(selectIsRefreshing);
 
@@ -27,9 +25,9 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader />
+    <Loading />
   ) : (
-    <div className={css.appContainer}>
+    <div>
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -63,4 +61,5 @@ export const App = () => {
       <ToastNotification />
     </div>
   );
-};
+}
+export default App;

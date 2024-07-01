@@ -46,7 +46,7 @@ export default function RegistrationForm() {
           onSubmit={handleRegisterContact}
         >
           <Form className={css.form}>
-            <p className={css.titleForm}>Do not have an account? Create one!</p>
+            <h4 className={css.title}>Do not have an account? Create one!</h4>
             <div className={css.fields}>
               <label className={css.label} htmlFor={`${fieldId} - name`}>
                 Name
@@ -74,7 +74,12 @@ export default function RegistrationForm() {
                 Email
               </label>
               <div className={css.positionIcon}>
-                <Field type="email" name="email" id={`${fieldId} - email`} />
+                <Field
+                  className={css.input}
+                  type="email"
+                  name="email"
+                  id={`${fieldId} - email`}
+                />
                 <span className={css.iconInp}>
                   <MdEmail />
                 </span>
@@ -92,6 +97,7 @@ export default function RegistrationForm() {
               </label>
               <div className={css.positionIcon}>
                 <Field
+                  className={css.input}
                   type="password"
                   name="password"
                   id={`${fieldId} - password`}

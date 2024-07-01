@@ -1,7 +1,7 @@
 import css from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 import { useSelector } from 'react-redux';
-import Loader from '../../components/Loader/Loader';
+import Loading from '../../components/Loader/Loader';
 import {
   selectError,
   selectFilteredContacts,
@@ -15,7 +15,7 @@ function ContactList() {
 
   return (
     <ul className={css.list}>
-      {loading && <Loader />}
+      {loading && <Loading />}
       {!loading &&
         contacts &&
         !error &&

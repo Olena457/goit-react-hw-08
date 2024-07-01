@@ -1,5 +1,14 @@
-.title {
-  font-size: large;
+/* .title {
+  font-size: x-large;
   color: black;
-  margin: 0 auto;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+} */
+.title {
+  color: black;
+  text-shadow: 1px 1px 2px pink;
+
+  /* text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 1.5em Georgia, serif; */
 }
