@@ -19,18 +19,20 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const initialState = {
-  user: { name: null, email: null },
-  token: null,
-  isLoggedIn: false,
-  isRefreshing: false,
-  loading: false,
-  error: false,
-};
-
 const authSlice = createSlice({
   name: 'auth',
-  initialState,
+  initialState: {
+    user: {
+      name: null,
+      email: null,
+    },
+    token: null,
+    isLoggedIn: false,
+    isRefreshing: false,
+    loading: false,
+    error: false,
+  },
+
   extraReducers: builder => {
     builder
       .addCase(register.pending, handlePending)
@@ -56,6 +58,7 @@ const authSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
+
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;

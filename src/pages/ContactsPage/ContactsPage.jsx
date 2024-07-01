@@ -1,22 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+
 import ContactForm from '../../components/ContactForm/ContactForm';
 import ContactList from '../../components/ContactList/ContactList';
-import Loader from '../../components/Loader/Loader';
+import Loading from '../../components/Loading/Loading';
 import { fetchContacts } from '../../redux/contacts/operations';
-import css from './ContactPage.module.css';
+import css from '../ContactsPage/ContactPage.module.css';
 
-import {
-  selectLoading,
-  selectError,
-  selectFilteredContacts,
-} from '../../redux/contacts/selectors';
+import { selectLoading } from '../../redux/contacts/selectors';
 
-const ContactsPage = () => {
+export default function ContactsPage() {
   const dispatch = useDispatch();
 
-  const error = useSelector(selectError);
-  const filteredContacts = useSelector(selectFilteredContacts);
   const isLoading = useSelector(selectLoading);
 
   useEffect(() => {
@@ -25,12 +20,9 @@ const ContactsPage = () => {
 
   return (
     <>
-      <title className={css.title}>Your Contacts</title>
+      <h3 className={css.title}>Your Contacts</h3>
       <ContactForm />
-      {isLoading ? <Loader /> : <ContactList contacts={filteredContacts} />}
-      {error && <p>Something went wrong: {error}</p>}
+      {isLoading ? <Loading /> : <ContactList />}
     </>
   );
-};
-
-export default ContactsPage;
+}

@@ -1,15 +1,15 @@
 import { Toaster } from 'react-hot-toast';
 
-export default function MessageError() {
+export default function ToastNotification() {
   return (
     <Toaster
-      position="top-right"
+      position="top-center"
       reverseOrder={false}
-      gutter={8}
+      gutter={6}
       toastOptions={{
         duration: 3000,
         style: {
-          border: '2px solid ##e71c30',
+          border: '2px solid #e71c30',
         },
       }}
     />

@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
-import { useAuth } from '../../hooks';
+import { selectUser } from '../../redux/auth/selectors';
 import css from './UserMenu.module.css';
 
-export const UserMenu = () => {
+export default function UserMenu() {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const { user } = useAuth();
 
   return (
     <div className={css.wrapper}>
@@ -19,4 +19,4 @@ export const UserMenu = () => {
       </button>
     </div>
   );
-};
+}

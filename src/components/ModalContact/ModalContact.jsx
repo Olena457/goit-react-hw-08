@@ -1,27 +1,13 @@
-// import css from './Modal.module.css';
-// const Modal = ({ onClose, children }) => {
-//   return (
-//     <div className={css.modalBackdrop} onClick={onClose}>
-//       <div className={css.modalContent} onClick={e => e.stopPropagation()}>
-//         {children}
-//         <button className={css.closeButton} onClick={onClose}>
-//           Close
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-// export default Modal;
-import css from './ModalContact.module.css';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/operations.js';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useDispatch } from 'react-redux';
 import Modal from '@mui/material/Modal';
-import toast from 'react-hot-toast';
 import { MdDelete } from 'react-icons/md';
+import toast from 'react-hot-toast';
 import { IconContext } from 'react-icons';
+import css from '../ModalContact/ModalContact.module.css';
+import { deleteContact } from '../../redux/contacts/operations.js';
 
 const style = {
   position: 'absolute',
@@ -30,8 +16,8 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
-  boxShadow: 22,
+  bgcolor: '#f0f0f0',
+  boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.2)',
   p: 4,
 };
 
@@ -76,7 +62,7 @@ export default function ModalContact({ item }) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Are you absolutely sure you want to delete the contact?
+            Are you sure you want to delete the contact?
           </Typography>
           <button onClick={handleDeleteContact} className={css.btnModal}>
             <IconContext.Provider

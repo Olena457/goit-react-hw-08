@@ -1,16 +1,17 @@
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useId } from 'react';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { RiUser3Fill } from 'react-icons/ri';
 import { MdEmail } from 'react-icons/md';
 import { PiLockKeyFill } from 'react-icons/pi';
-import css from './RegistrationForm.module.css';
+import { register } from '../../redux/auth/operations';
+import css from '../RegistrationForm/RegistrationForm.module.css';
 
 const UserSchema = Yup.object({
   name: Yup.string()
-    .required('Required')
+    .required('Required name')
     .min(3, 'Too Short!')
     .max(50, 'Too Long!'),
   email: Yup.string().email('Invalid email address').required('Required email'),
@@ -19,10 +20,11 @@ const UserSchema = Yup.object({
     .required('Required password'),
 });
 
-const RegistrationForm = () => {
+export default function RegistrationForm() {
   const dispatch = useDispatch();
+  const fieldId = useId();
 
-  const handleRegisteredUser = (values, actions) => {
+  const handleRegisterContact = (values, actions) => {
     dispatch(register(values))
       .unwrap()
       .then(() => {
@@ -32,6 +34,7 @@ const RegistrationForm = () => {
       .catch(() => {
         toast.error('Problem with the registration process');
       });
+    actions.resetForm();
   };
 
   return (
@@ -40,78 +43,76 @@ const RegistrationForm = () => {
         <Formik
           initialValues={{ name: '', email: '', password: '' }}
           validationSchema={UserSchema}
-          onSubmit={handleRegisteredUser}
+          onSubmit={handleRegisterContact}
         >
-          {({ handleSubmit }) => (
-            <Form className={css.form} onSubmit={handleSubmit}>
-              <p className={css.titleForm}>
-                Do not have an account? Create one.
-              </p>
-              <div className={css.fields}>
-                <label className={css.label} htmlFor="name">
-                  Name
-                </label>
-                <div className={css.positionIcon}>
-                  <Field
-                    className={css.input}
-                    type="text"
-                    name="name"
-                    id="name"
-                  />
-                  <span className={css.iconInp}>
-                    <RiUser3Fill />
-                  </span>
-                </div>
-                <ErrorMessage
+          <Form className={css.form}>
+            <p className={css.titleForm}>Do not have an account? Create one!</p>
+            <div className={css.fields}>
+              <label className={css.label} htmlFor={`${fieldId} - name`}>
+                Name
+              </label>
+              <div className={css.positionIcon}>
+                <Field
+                  className={css.input}
+                  type="text"
                   name="name"
-                  component="span"
-                  className={css.error}
+                  id={`${fieldId} - name`}
                 />
+                <span className={css.iconInp}>
+                  <RiUser3Fill />
+                </span>
               </div>
+              <ErrorMessage
+                name="name"
+                component="span"
+                className={css.error}
+              />
+            </div>
 
-              <div className={css.fields}>
-                <label className={css.label} htmlFor="email">
-                  Email
-                </label>
-                <div className={css.positionIcon}>
-                  <Field type="email" name="email" id="email" />
-                  <span className={css.iconInp}>
-                    <MdEmail />
-                  </span>
-                </div>
-                <ErrorMessage
-                  name="email"
-                  component="span"
-                  className={css.error}
-                />
+            <div className={css.fields}>
+              <label className={css.label} htmlFor={`${fieldId} - email`}>
+                Email
+              </label>
+              <div className={css.positionIcon}>
+                <Field type="email" name="email" id={`${fieldId} - email`} />
+                <span className={css.iconInp}>
+                  <MdEmail />
+                </span>
               </div>
+              <ErrorMessage
+                name="email"
+                component="span"
+                className={css.error}
+              />
+            </div>
 
-              <div className={css.fields}>
-                <label className={css.label} htmlFor="password">
-                  Password
-                </label>
-                <div className={css.positionIcon}>
-                  <Field type="password" name="password" id="password" />
-                  <span className={css.iconInp}>
-                    <PiLockKeyFill />
-                  </span>
-                </div>
-                <ErrorMessage
+            <div className={css.fields}>
+              <label className={css.label} htmlFor={`${fieldId} - password`}>
+                Password
+              </label>
+              <div className={css.positionIcon}>
+                <Field
+                  type="password"
                   name="password"
-                  component="span"
-                  className={css.error}
+                  id={`${fieldId} - password`}
                 />
+                <span className={css.iconInp}>
+                  <PiLockKeyFill />
+                </span>
               </div>
+              <ErrorMessage
+                name="password"
+                component="span"
+                className={css.error}
+              />
+            </div>
 
-              <button className={css.btn} type="submit">
-                Register
-              </button>
-            </Form>
-          )}
+            <button className={css.btn} type="submit">
+              Register
+            </button>
+          </Form>
         </Formik>
       </div>
     </div>
   );
-};
-
-export default RegistrationForm;
+}

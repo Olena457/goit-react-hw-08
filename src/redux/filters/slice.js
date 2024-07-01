@@ -8,12 +8,8 @@ const slice = createSlice({
   reducers: {
     changeFilter(state, action) {
       const { name, number } = action.payload;
-      if (name !== undefined) {
-        state.name = name;
-      }
-      if (number !== undefined) {
-        state.number = number;
-      }
+      state.name = name ?? state.name;
+      state.number = number ?? state.number;
     },
   },
 });

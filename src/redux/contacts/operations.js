@@ -1,26 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'https://66752437a8d2b4d072eeda49.mockapi.io';
+axios.defaults.baseURL = 'https://66752437a8d2b4d072eeda49.mockapi.io';
 
 export const fetchContacts = createAsyncThunk(
   ' contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const responce = await axios.get('/contacts');
-      return responce.data;
+      const resp = await axios.get('/contacts');
+      return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 export const addContact = createAsyncThunk(
   'contacts/addContact',
 
-  async (contact, thunkAPI) => {
+  async (items, thunkAPI) => {
     try {
-      const responce = await axios.post('/contacts', contact);
-      return responce.data;
+      const resp = await axios.post('/contacts', items);
+      return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -28,22 +29,22 @@ export const addContact = createAsyncThunk(
 );
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (contactId, thunkAPI) => {
+  async (itemId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${contactId}`);
-      return response.data;
+      const resp = await axios.delete(`/contacts/${itemId}`);
+      return resp.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 export const patchContact = createAsyncThunk(
-  'contact/patchContact',
+  'contacts/patchContact',
   async (updatedContact, thunkAPI) => {
     const { id, name, number } = updatedContact;
     try {
-      const responce = await axios(`contact/${id}`, { name, number });
-      return responce.data;
+      const response = await axios.patch(`contacts/${id}`, { name, number });
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
