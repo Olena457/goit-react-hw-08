@@ -3,8 +3,8 @@ import css from '../LoginPage/LoginPage.module.css';
 
 export default function LoginPage() {
   return (
-    <div>
-      <h3 className={css.title}>Login page</h3>
+    <div className={css.container}>
+      <h2 className={css.title}>Login page</h2>
       <LoginForm />
     </div>
   );

@@ -1,7 +1,10 @@
 .header {
+  background-color: #65cd07;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #2a363b;
+  padding: 0 30px;
+  /* margin-bottom: 16px; */
+  border-bottom: 2px solid #2a363b;
 }

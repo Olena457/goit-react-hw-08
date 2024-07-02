@@ -19,10 +19,10 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={css.container}>
       <h3 className={css.title}>Your Contacts</h3>
       <ContactForm />
       {isLoading ? <Loading /> : <ContactList />}
-    </>
+    </div>
   );
 }

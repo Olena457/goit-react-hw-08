@@ -9,7 +9,7 @@ export default function UserMenu() {
 
   return (
     <div className={css.wrapper}>
-      <p className={css.userName}>Welcome, {user.name}👋</p>
+      <h2 className={css.userName}>Welcome, {user.name}👋</h2>
       <button
         type="button"
         className={css.btnUser}

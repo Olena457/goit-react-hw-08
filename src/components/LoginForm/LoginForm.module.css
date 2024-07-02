@@ -1,24 +1,20 @@
-/* .form {
-  width: 320px;
-}
-
-.label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-} */
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 70px;
+  /* margin: 70px; */
   padding: 0 16px;
 }
 .containerForm {
   border-radius: 4px;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+.form {
+  padding: 25px 40px;
+  background-color: white;
+  border-radius: 6px;
 }
 
 .label {
@@ -31,9 +27,12 @@
 }
 .title {
   font-size: 20px;
-  font-weight: 400;
   text-align: center;
+  color: black;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
   color: white;
+
+  font: 1.5em Georgia, serif;
 }
 .positionIcon {
   position: relative;
@@ -47,7 +46,9 @@
   font-size: 15px;
   border: 2px solid #6a6969;
   background-color: rgba(255, 255, 255, 0.932);
+  box-shadow: 0 10px 10px -10px rgba(128, 128, 128, 0.5);
 }
+
 .iconInp {
   position: absolute;
   right: 16px;
@@ -68,18 +69,24 @@
   cursor: pointer;
   background-color: #141010;
   color: whitesmoke;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: #f24e5e;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #65cd07;
   color: #333333;
   border: 2px solid #141010;
-  /* background-color: rgba(255, 0, 0, 0.872);
-  border-color: rgb(255, 47, 0); */
 }
+
+/* background-color: rgba(255, 0, 0, 0.872);
+  border-color: rgb(255, 47, 0); */
 
 .error {
   color: rgb(255, 0, 0, 0.872);

@@ -7,13 +7,17 @@ export default function AuthNavigation() {
     return clsx(css.link, isActive && css.active);
   }
   return (
-    <div className={css.conteiner}>
-      <NavLink className={activeLink} to="/register">
-        Register
-      </NavLink>
-      <NavLink className={activeLink} to="/login">
-        Log In
-      </NavLink>
-    </div>
+    <>
+      <div className={css.conteiner}>
+        <NavLink className={activeLink} to="/register">
+          Register
+        </NavLink>
+      </div>
+      <div className={css.conteiner}>
+        <NavLink className={activeLink} to="/login">
+          Log In
+        </NavLink>
+      </div>
+    </>
   );
 }

@@ -53,7 +53,12 @@ export default function LoginForm() {
                 Email
               </label>
               <div className={css.positionIcon}>
-                <Field type="email" name="email" id={`${fieldId}-email`} />
+                <Field
+                  className={css.input}
+                  type="email"
+                  name="email"
+                  id={`${fieldId}-email`}
+                />
                 <span className={css.iconInp}>
                   <MdEmail />
                 </span>
@@ -71,6 +76,7 @@ export default function LoginForm() {
               </label>
               <div className={css.positionIcon}>
                 <Field
+                  className={css.input}
                   type="password"
                   name="password"
                   id={`${fieldId}-password`}
