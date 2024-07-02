@@ -4,7 +4,7 @@ import SearchBox from '../SearchBox/SearchBox';
 import css from './ContactForm.module.css';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
