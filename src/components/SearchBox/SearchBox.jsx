@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '../../redux/filters/slice.js';
 import css from './SearchBox.module.css';
 import toast from 'react-hot-toast';
-import { Modal } from 'react';
-// import ModalContact from '../ModalContact/ModalContact.jsx';
+
+import ModalContact from '../ModalContact/ModalContact.jsx';
 
 import {
   selectNameFilter,
@@ -68,11 +68,13 @@ function SearchBox() {
           </IconContext.Provider>
         </div>
         {isModalOpen && (
-          <Modal onClose={() => setIsModalOpen(false)}>
-            <p>Are you sure you want to delete this contact?</p>
-            <button onClick={handleDeleteContact}>Yes</button>
-            <button onClick={() => setIsModalOpen(false)}>No</button>
-          </Modal>
+          <>
+            <ModalContact onClose={() => setIsModalOpen(false)}>
+              <p>Are you sure you want to delete this contact?</p>
+              <button onClick={handleDeleteContact}>Yes</button>
+              <button onClick={() => setIsModalOpen(false)}>No</button>
+            </ModalContact>
+          </>
         )}
       </div>
     </>
