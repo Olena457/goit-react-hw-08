@@ -4,35 +4,6 @@
   align-items: center;
 }
 
-.underline-oneLink {
-  color: #00bfff;
-  position: relative;
-  cursor: pointer;
-  text-decoration: none;
-}
-.underline-one:after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background-color: black;
-  transition: width 0.5s;
-}
-
-.underline-one:hover:after {
-  content: '';
-  width: 100%;
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  height: 2px;
-  background-color: red;
-  transition: width 0.5s;
-}
 /* ____________________________ */
 .neon-btn {
   box-sizing: border-box;
