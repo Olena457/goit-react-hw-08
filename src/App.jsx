@@ -7,6 +7,7 @@ import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 import ToastNotification from './components/ToastNotification/ToastNotification';
 import Loading from './components/Loading/Loading';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectIsRefreshing } from './redux/auth/selectors';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const RegistrationPage = lazy(() =>

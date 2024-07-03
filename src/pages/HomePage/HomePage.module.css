@@ -30,8 +30,9 @@
 .btn {
   width: 100px;
   height: 40px;
-  margin-top: auto;
-  margin-bottom: 10px;
+  margin-right: 10px;
+  /* margin-top: auto;
+  margin-bottom: 10px; */
   padding: 10px 10px;
   border: 2px solid #bab5b5;
   outline: 1px solid transparent;
