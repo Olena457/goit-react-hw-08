@@ -1,5 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FaRegAddressBook } from 'react-icons/fa6';
+// import { FaRegAddressBook } from 'react-icons/fa6';
+import { FaUserTie } from 'react-icons/fa';
+import { FaMobileRetro } from 'react-icons/fa6';
+
 import SearchBox from '../SearchBox/SearchBox';
 import css from './ContactForm.module.css';
 import * as Yup from 'yup';
@@ -20,55 +23,73 @@ const validationSchema = Yup.object().shape({
 function ContactForm() {
   const dispatch = useDispatch();
   return (
-    <Formik
-      initialValues={{ name: '', number: '' }}
-      validationSchema={validationSchema}
-      onSubmit={(values, actions) => {
-        alert(JSON.stringify(values, null, 2));
-        dispatch(addContact(values));
-        actions.setSubmitting(false);
-        actions.resetForm();
-      }}
-    >
-      <>
-        <Form className={css.contactForm}>
-          <div className={css.phoneBook}>
-            <FaRegAddressBook className={css.homeIcon} />
-            Phonebook
-          </div>
-          <label className={css.contactFormlabel} htmlFor="name">
-            Name
-          </label>
-          <div className={css.fieldWrapper}>
-            <Field
-              className={css.contactFormInput}
-              type="text"
-              name="name"
-              id="name"
-            />
-            <ErrorMessage className={css.error} name="name" component="span" />
-          </div>
+    <>
+      <div className={css.container}>
+        <div className={css.containerForm}>
+          <Formik
+            initialValues={{ name: '', number: '' }}
+            validationSchema={validationSchema}
+            onSubmit={(values, actions) => {
+              alert(JSON.stringify(values, null, 2));
+              dispatch(addContact(values));
+              actions.setSubmitting(false);
+              actions.resetForm();
+            }}
+          >
+            <Form className={css.form}>
+              <h3 className={css.title}>Add contacts</h3>
+              <div className={css.fields}>
+                <label className={css.label} htmlFor="name">
+                  Name
+                </label>
+                <div className={css.positionIcon}>
+                  <Field
+                    className={css.input}
+                    type="text"
+                    name="name"
+                    id="name"
+                  />
+                  <span className={css.iconInp}>
+                    <FaUserTie />
+                  </span>
+                </div>
+                <ErrorMessage
+                  className={css.error}
+                  name="name"
+                  component="span"
+                />
+              </div>
+              <div className={css.fields}>
+                <label className={css.label} htmlFor="number">
+                  Number
+                </label>
+                <div className={css.positionIcon}>
+                  <Field
+                    className={css.input}
+                    type="text"
+                    name="number"
+                    id="number"
+                  />
+                  <span className={css.iconInp}>
+                    <FaMobileRetro />
+                  </span>
+                </div>
+                <ErrorMessage
+                  className={css.error}
+                  name="number"
+                  component="div"
+                />
+              </div>
 
-          <label className={css.contactFormlabel} htmlFor="number">
-            Number
-          </label>
-          <div className={css.fieldWrapper}>
-            <Field
-              className={css.contactFormInput}
-              type="text"
-              name="number"
-              id="number"
-            />
-            <ErrorMessage className={css.error} name="number" component="div" />
-          </div>
-
-          <button className={css.contactFormBtn} type="submit">
-            Add contact
-          </button>
-          <SearchBox />
-        </Form>
-      </>
-    </Formik>
+              <button className={css.btn} type="submit">
+                Add contact
+              </button>
+              <SearchBox />
+            </Form>
+          </Formik>
+        </div>
+      </div>
+    </>
   );
 }
 

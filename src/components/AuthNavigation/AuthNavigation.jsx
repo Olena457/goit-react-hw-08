@@ -12,8 +12,6 @@ export default function AuthNavigation() {
         <NavLink className={activeLink} to="/register">
           Register
         </NavLink>
-      </div>
-      <div className={css.conteiner}>
         <NavLink className={activeLink} to="/login">
           Log In
         </NavLink>

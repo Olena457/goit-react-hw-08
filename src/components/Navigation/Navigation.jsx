@@ -11,20 +11,20 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
-    <nav>
-      <div className={css.header}>
-        <NavLink className={getClassActiveLink} to="/">
-          Home
-        </NavLink>
-      </div>
-
-      {isLoggedIn && (
+    <>
+      <nav>
         <div className={css.header}>
-          <NavLink className={getClassActiveLink} to="/contacts">
-            Contacts
+          <NavLink className={getClassActiveLink} to="/">
+            Home
           </NavLink>
+
+          {isLoggedIn && (
+            <NavLink className={getClassActiveLink} to="/contacts">
+              Contacts
+            </NavLink>
+          )}
         </div>
-      )}
-    </nav>
+      </nav>
+    </>
   );
 };

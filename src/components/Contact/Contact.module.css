@@ -2,6 +2,7 @@
   flex-direction: column;
   gap: 8px;
   display: flex;
+  background-color: white;
 }
 
 .userInfo {
@@ -30,4 +31,5 @@
 .deleteBtn:hover {
   background-color: rgba(255, 0, 0, 0.872);
   border-color: rgb(255, 47, 0);
+  color: white;
 }

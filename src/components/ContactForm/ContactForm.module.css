@@ -1,99 +1,89 @@
-.phoneBook {
+.container {
   display: flex;
-  top: 0;
-  left: 0;
-  font-weight: 800;
-  font-size: x-large;
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-
-  color: #333333;
-  gap: 8px;
-  margin: 0;
-  padding: 10px;
-  background-color: #f24e5e;
-  border-bottom: 2px solid #6d6e71;
-  box-shadow: 0 10px 10px -10px rgba(128, 128, 128, 0.5);
-}
-
-.homeIcon {
-  margin-right: 8px;
-  font-size: 35px;
-  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-}
-.title {
-  color: black;
-  font-size: -webkit-xxx-large;
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-align: left;
-}
-.fieldWrapper {
-  position: relative;
-}
-.contactForm {
-  display: flex;
-  width: 400px;
   flex-direction: column;
-  padding: 28px;
-  border-color: transparent;
-  margin-top: 60px;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
-  /* border-radius: 4px;
-  border: 1px solid black;
-  border: 1px solid #474f52;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5); */
+  padding: 0 16px;
 }
 
-.contactFormlabel {
+.form {
+  padding: 25px 40px;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
+    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.label {
   display: block;
   margin-bottom: 4px;
-  color: #6d6e71;
-  font-size: 18px;
-  font-weight: 700;
-  font-size: x-large;
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: 300;
+  color: white;
 }
-.contactFormInput {
-  display: block;
-  height: 30px;
-  width: 350px;
-  margin: 0 auto;
-  margin-bottom: 24px;
-  padding: 5px;
+.title {
+  font-size: 16px;
+  text-align: center;
+  color: black;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 1.5em Georgia, serif;
+}
+.positionIcon {
+  position: relative;
+}
+.input {
+  width: 400px;
+  padding: 10px 40px 10px 20px;
+  margin-bottom: 8px;
+  outline: 1px solid transparent;
   border-radius: 4px;
-  background-color: #d3d3d3;
+  font-size: 15px;
+  border: 2px solid #6a6969;
+  background-color: rgba(255, 255, 255, 0.932);
+  box-shadow: 0 10px 10px -10px rgba(128, 128, 128, 0.5);
+}
+.iconInp {
+  position: absolute;
+  right: 16px;
+  top: 70%;
+  transform: translateY(-100%);
+  fill: #0b0b0f;
+}
+.btn {
+  width: 400px;
+  padding: 12px;
+  border: none;
+  margin-top: 30px;
+  outline: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #141010;
+  color: whitesmoke;
   box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
     10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contactFormBtn {
-  margin-top: 20px;
-  color: #6d6e71;
-  background-color: #77dd77;
-  padding: 10px;
-  cursor: pointer;
-  display: block;
-  height: 50px;
-  width: 150px;
-  margin: 0 auto;
-  border: 2px solid #6d6e71;
-  box-shadow: -10px 0 10px -10px rgba(0, 0, 0, 0.5),
-    10px 0 10px -10px rgba(0, 0, 0, 0.5), 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+.btn:hover,
+.btn:focus {
+  font-size: 15px;
+  font-weight: 500;
+  background-color: #65cd07;
+  color: #333333;
+  border: 2px solid #141010;
 }
-.contactFormBtn:hover {
-  outline: none;
-  border-bottom: transparent;
-  background-color: rgba(119, 221, 119);
-  border-color: #8ff628ce;
-}
+
 .error {
   color: rgb(255, 0, 0, 0.872);
-  font-size: 16px;
-  position: absolute;
-  top: 65%;
-  left: 0;
-  font-weight: bold;
+  height: 20px;
+  margin: 10px 0;
+  text-transform: uppercase;
+  font-weight: 400;
 }
