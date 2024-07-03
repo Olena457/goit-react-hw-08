@@ -22,11 +22,6 @@ export default function LoginForm() {
   const dispatch = useDispatch();
   const fieldId = useId();
 
-  const initialValues = {
-    email: '',
-    password: '',
-  };
-
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values))
       .unwrap()
@@ -42,7 +37,10 @@ export default function LoginForm() {
     <div className={css.container}>
       <div className={css.containerForm}>
         <Formik
-          initialValues={initialValues}
+          initialValues={{
+            email: '',
+            password: '',
+          }}
           validationSchema={UserSchema}
           onSubmit={handleSubmit}
         >
