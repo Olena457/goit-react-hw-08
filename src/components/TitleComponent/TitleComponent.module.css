@@ -1,0 +1,10 @@
+.title {
+  margin-top: 50px;
+  font-size: 36px;
+  font-style: italic;
+  text-align: center;
+  color: #f24e5e;
+  text-shadow: 1px 1px 0 #000000, 2px 2px 0 #777777, 3px 3px 0 #666666,
+    4px 4px 0 #ffffff, 5px 5px 0 #555555, 6px 6px 0 #444444, 7px 7px 0 #333333,
+    8px 8px 7px #111111;
+}

@@ -2,16 +2,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 0;
+  margin-top: 600px;
+  margin: 0 auto;
   padding: 0;
-  background-image: url('../../assets/gtyu_14.jpg');
+  background-image: url('../../assets/1574.jpg');
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   place-items: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 400px;
 }
 
 .userName {
@@ -26,16 +27,20 @@
 }
 
 .btn {
-  padding: 15px 30px;
-  border: none;
+  width: 100px;
+  height: 40px;
+  margin-top: auto;
+  margin-bottom: 100px;
+  padding: 10px 10px;
+  border: 2px solid #bab5b5;
   outline: 1px solid transparent;
   font-size: 15px;
   font-weight: 500;
-  text-transform: uppercase;
+  margin-right: 10px;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #141010;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  color: black;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -45,6 +50,6 @@
   font-size: 15px;
   font-weight: 500;
   background-color: #65cd07;
-  color: #bab5b5;
-  border: 2px solid black;
+  color: whitesmoke;
+  border: 2px solid #a09797;
 }

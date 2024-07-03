@@ -47,6 +47,13 @@ function SearchBox() {
             </span>
           </IconContext.Provider>
         </div>
+        {/* {isModalOpen && (
+          <Modal onClose={() => setIsModalOpen(false)}>
+            <p>Are you sure you want to delete this contact?</p>
+            <button onClick={handleDeleteContact}>Yes</button>
+            <button onClick={() => setIsModalOpen(false)}>No</button>
+          </Modal> */}
+        )}
       </div>
     </>
   );
