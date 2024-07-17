@@ -10,7 +10,7 @@ export default function HomePage() {
     <>
       <div className={css.container}>
         {!isLoggedIn && (
-          <h1 className={css.title}>Welcome to the task manager home page💕</h1>
+          <h1 className={css.title}>Welcome to the task manager page📚</h1>
         )}
         {isLoggedIn ? (
           <UserMenu />
