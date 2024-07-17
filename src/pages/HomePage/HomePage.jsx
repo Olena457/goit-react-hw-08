@@ -10,14 +10,14 @@ export default function HomePage() {
     <>
       <div className={css.container}>
         {!isLoggedIn && (
-          <h1 className={css.title}>Welcome to the task manager page📚</h1>
+          <h1 className={css.title}>Welcome to the task manager page📚!</h1>
         )}
         {isLoggedIn ? (
           <UserMenu />
         ) : (
           <>
             <TitleComponent>
-              To get started,please at the beginning create a login!👌
+              To get start,please create a login👌
             </TitleComponent>
             <p>
               <Link to="/register" className={css.btn}>
