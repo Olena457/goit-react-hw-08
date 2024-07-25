@@ -5,14 +5,6 @@
   justify-content: center;
   margin: 0;
   padding: 0;
-  background-image: url('../../assets/hello14.jpg');
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  place-items: center;
-  width: 100%;
-  min-height: 100vh;
 }
 
 .title {

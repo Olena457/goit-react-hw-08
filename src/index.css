@@ -28,6 +28,14 @@ body {
   padding: 0;
   margin: 0 auto;
   background-color: #65cd07;
+  background-image: url('../src/assets/hello14.jpg');
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
 button {
